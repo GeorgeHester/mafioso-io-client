@@ -1,0 +1,14 @@
+.game-night-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    pointer-events: none;
+    transition: background-color 1s;
+}
+
+.game-night-overlay-active {
+    background-color: $color-black-transparent-03;
+}

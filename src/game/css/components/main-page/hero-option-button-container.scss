@@ -1,0 +1,72 @@
+.hero-option-button-container {
+    width: 100%;
+    margin-top: 128px;
+    display: flex;
+    justify-content: center;
+    background: none;
+
+    button {
+        position: relative;
+        height: 100%;
+        align-self: center;
+        padding: 16px;
+        border: none;
+        text-transform: none;
+        -webkit-appearance: button;
+        outline: none;
+        background: none;
+        cursor: default;
+    
+        span {
+            position: relative;
+            z-index: 1;
+            font-family: "Pixel";
+            font-size: 24px;
+            color: $color-white;
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            span {
+                filter: brightness(0.9);
+            }
+        }
+    } 
+}
+
+@media screen and (max-width: 768px) {
+
+    .hero-option-button-container {
+        flex-direction: column;
+
+        button {
+            width: 100%;
+            align-self: center;
+
+            &:nth-child(2) {
+                margin-top: 48px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .hero-option-button-container {
+        flex-direction: row;
+
+        button {
+
+            width: 100%;
+
+            &:nth-child(1) {
+                margin-right: 24px;
+            }
+
+            &:nth-child(2) {
+                margin-left: 24px;
+            }
+        }
+    }
+}

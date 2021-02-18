@@ -1,0 +1,200 @@
+// #region Import Fonts
+
+@import "./components/font/font.css";
+
+// #endregion
+
+// #region Import Variables
+
+$color-white: #ffffff;
+
+$color-grey-light-01: #f2f2f2;
+$color-grey-light-02: #e6e6e6;
+$color-grey-light-03: #d9d9d9;
+
+$color-grey-light-transparent-25: #ffffffbf;
+$color-grey-light-transparent-50: #ffffff80;
+$color-grey-light-transparent-75: #ffffff40;
+
+$color-grey-dark-01: #262626;
+$color-grey-dark-02: #191919;
+$color-grey-dark-03: #0d0d0d;
+
+$color-black: #000000;
+
+$color-black-transparent-01: #000000bf;
+$color-black-transparent-02: #00000080;
+$color-black-transparent-03: #00000040;
+
+$color-red-dark-75: #3a0714;
+$color-red-dark-50: #730e28;
+$color-red-dark-25: #ad153c;
+
+$color-red: #e61c50;
+
+$color-red-light-25: #ec557c;
+$color-red-light-50: #f38ea8;
+$color-red-light-75: #f9c6d3;
+
+$color-red-transparent-01: #e61c50bf;
+$color-red-transparent-02: #e61c5080;
+$color-red-transparent-03: #e61c5040;
+
+$color-green-dark-75: #003922;
+$color-green-dark-50: #007344;
+$color-green-dark-25: #00ac65;
+
+$color-green: #00e587;
+
+$color-green-light-25: #40eca5;
+$color-green-light-50: #80f2c3;
+$color-green-light-75: #bff9e1;
+
+$color-green-transparent-01: #00e587bf;
+$color-green-transparent-02: #00e58780;
+$color-green-transparent-03: #00e58740;
+
+$color-blue-dark-75: #073040;
+$color-blue-dark-50: #0f6080;
+$color-blue-dark-25: #168fbf;
+
+$color-blue: #1dbfff;
+
+$color-blue-light-25: #56cfff;
+$color-blue-light-50: #8edfff;
+$color-blue-light-75: #c7efff;
+
+$color-blue-transparent-01: #1dbfffbf;
+$color-blue-transparent-02: #1dbfff80;
+$color-blue-transparent-03: #1dbfff40;
+
+$mafioso-background-url: "../img/assets/game/ui/mafioso-background.png";
+$mafioso-background-grey-url: "../img/assets/game/ui/mafioso-background-grey.png";
+$mafioso-background-size: 128px;
+
+$card-counter-texture: "../img/assets/game/ui/ui-card/counter/ui-card-counter-texture.png";
+/*
+$card-corner-texture-player: "../img/assets/game/ui/ui-card/player/ui-card-corner-texture.png";
+$card-center-texture-player: "../img/assets/game/ui/ui-card/player/ui-card-center-texture.png";
+$card-side-y-texture-player: "../img/assets/game/ui/ui-card/player/ui-card-side-y-texture.png";
+$card-side-x-texture-player: "../img/assets/game/ui/ui-card/player/ui-card-side-x-texture.png";
+
+$card-corner-texture-player-hover: "../img/assets/game/ui/ui-card/player-hover/ui-card-corner-texture.png";
+$card-center-texture-player-hover: "../img/assets/game/ui/ui-card/player-hover/ui-card-center-texture.png";
+$card-side-y-texture-player-hover: "../img/assets/game/ui/ui-card/player-hover/ui-card-side-y-texture.png";
+$card-side-x-texture-player-hover: "../img/assets/game/ui/ui-card/player-hover/ui-card-side-x-texture.png";
+
+$card-corner-texture-player-selected: "../img/assets/game/ui/ui-card/player-active/ui-card-corner-texture.png";
+$card-center-texture-player-selected: "../img/assets/game/ui/ui-card/player-active/ui-card-center-texture.png";
+$card-side-y-texture-player-selected: "../img/assets/game/ui/ui-card/player-active/ui-card-side-y-texture.png";
+$card-side-x-texture-player-selected: "../img/assets/game/ui/ui-card/player-active/ui-card-side-x-texture.png";
+
+$card-corner-texture-player-dead: "../img/assets/game/ui/ui-card/player-dead/ui-card-corner-texture.png";
+$card-center-texture-player-dead: "../img/assets/game/ui/ui-card/player-dead/ui-card-center-texture.png";
+$card-side-y-texture-player-dead: "../img/assets/game/ui/ui-card/player-dead/ui-card-side-y-texture.png";
+$card-side-x-texture-player-dead: "../img/assets/game/ui/ui-card/player-dead/ui-card-side-x-texture.png";
+
+$card-corner-texture-player-disabled: "../img/assets/game/ui/ui-card/player-disabled/ui-card-corner-texture.png";
+$card-center-texture-player-disabled: "../img/assets/game/ui/ui-card/player-disabled/ui-card-center-texture.png";
+$card-side-y-texture-player-disabled: "../img/assets/game/ui/ui-card/player-disabled/ui-card-side-y-texture.png";
+$card-side-x-texture-player-disabled: "../img/assets/game/ui/ui-card/player-disabled/ui-card-side-x-texture.png";
+
+$card-corner-texture-message-default: "../img/assets/game/ui/ui-card/message-default/ui-card-corner-texture.png";
+$card-center-texture-message-default: "../img/assets/game/ui/ui-card/message-default/ui-card-center-texture.png";
+$card-side-y-texture-message-default: "../img/assets/game/ui/ui-card/message-default/ui-card-side-y-texture.png";
+$card-side-x-texture-message-default: "../img/assets/game/ui/ui-card/message-default/ui-card-side-x-texture.png";
+
+$card-corner-texture-message-fail: "../img/assets/game/ui/ui-card/message-fail/ui-card-corner-texture.png";
+$card-center-texture-message-fail: "../img/assets/game/ui/ui-card/message-fail/ui-card-center-texture.png";
+$card-side-y-texture-message-fail: "../img/assets/game/ui/ui-card/message-fail/ui-card-side-y-texture.png";
+$card-side-x-texture-message-fail: "../img/assets/game/ui/ui-card/message-fail/ui-card-side-x-texture.png";
+
+$card-corner-texture-message-success: "../img/assets/game/ui/ui-card/message-success/ui-card-corner-texture.png";
+$card-center-texture-message-success: "../img/assets/game/ui/ui-card/message-success/ui-card-center-texture.png";
+$card-side-y-texture-message-success: "../img/assets/game/ui/ui-card/message-success/ui-card-side-y-texture.png";
+$card-side-x-texture-message-success: "../img/assets/game/ui/ui-card/message-success/ui-card-side-x-texture.png";
+
+$card-corner-texture-button-black: "../img/assets/game/ui/ui-card/button-black/ui-card-corner-texture.png";
+$card-center-texture-button-black: "../img/assets/game/ui/ui-card/button-black/ui-card-center-texture.png";
+$card-side-y-texture-button-black: "../img/assets/game/ui/ui-card/button-black/ui-card-side-y-texture.png";
+$card-side-x-texture-button-black: "../img/assets/game/ui/ui-card/button-black/ui-card-side-x-texture.png";
+
+$card-corner-texture-button-black-hover: "../img/assets/game/ui/ui-card/button-black-hover/ui-card-corner-texture.png";
+$card-center-texture-button-black-hover: "../img/assets/game/ui/ui-card/button-black-hover/ui-card-center-texture.png";
+$card-side-y-texture-button-black-hover: "../img/assets/game/ui/ui-card/button-black-hover/ui-card-side-y-texture.png";
+$card-side-x-texture-button-black-hover: "../img/assets/game/ui/ui-card/button-black-hover/ui-card-side-x-texture.png";
+
+$card-corner-texture-button-green: "../img/assets/game/ui/ui-card/button-green/ui-card-corner-texture.png";
+$card-center-texture-button-green: "../img/assets/game/ui/ui-card/button-green/ui-card-center-texture.png";
+$card-side-y-texture-button-green: "../img/assets/game/ui/ui-card/button-green/ui-card-side-y-texture.png";
+$card-side-x-texture-button-green: "../img/assets/game/ui/ui-card/button-green/ui-card-side-x-texture.png";
+
+$card-corner-texture-button-green-hover: "../img/assets/game/ui/ui-card/button-green-hover/ui-card-corner-texture.png";
+$card-center-texture-button-green-hover: "../img/assets/game/ui/ui-card/button-green-hover/ui-card-center-texture.png";
+$card-side-y-texture-button-green-hover: "../img/assets/game/ui/ui-card/button-green-hover/ui-card-side-y-texture.png";
+$card-side-x-texture-button-green-hover: "../img/assets/game/ui/ui-card/button-green-hover/ui-card-side-x-texture.png";
+
+$card-corner-texture-button-blue: "../img/assets/game/ui/ui-card/button-blue/ui-card-corner-texture.png";
+$card-center-texture-button-blue: "../img/assets/game/ui/ui-card/button-blue/ui-card-center-texture.png";
+$card-side-y-texture-button-blue: "../img/assets/game/ui/ui-card/button-blue/ui-card-side-y-texture.png";
+$card-side-x-texture-button-blue: "../img/assets/game/ui/ui-card/button-blue/ui-card-side-x-texture.png";
+
+$card-corner-texture-button-blue-hover: "../img/assets/game/ui/ui-card/button-blue-hover/ui-card-corner-texture.png";
+$card-center-texture-button-blue-hover: "../img/assets/game/ui/ui-card/button-blue-hover/ui-card-center-texture.png";
+$card-side-y-texture-button-blue-hover: "../img/assets/game/ui/ui-card/button-blue-hover/ui-card-side-y-texture.png";
+$card-side-x-texture-button-blue-hover: "../img/assets/game/ui/ui-card/button-blue-hover/ui-card-side-x-texture.png";
+
+$card-corner-texture-button-disabled: "../img/assets/game/ui/ui-card/button-disabled/ui-card-corner-texture.png";
+$card-center-texture-button-disabled: "../img/assets/game/ui/ui-card/button-disabled/ui-card-center-texture.png";
+$card-side-y-texture-button-disabled: "../img/assets/game/ui/ui-card/button-disabled/ui-card-side-y-texture.png";
+$card-side-x-texture-button-disabled: "../img/assets/game/ui/ui-card/button-disabled/ui-card-side-x-texture.png";
+
+$card-corner-texture-button-danger: "../img/assets/game/ui/ui-card/button-danger/ui-card-corner-texture.png";
+$card-center-texture-button-danger: "../img/assets/game/ui/ui-card/button-danger/ui-card-center-texture.png";
+$card-side-y-texture-button-danger: "../img/assets/game/ui/ui-card/button-danger/ui-card-side-y-texture.png";
+$card-side-x-texture-button-danger: "../img/assets/game/ui/ui-card/button-danger/ui-card-side-x-texture.png";
+
+$card-corner-texture-button-white: "../img/assets/game/ui/ui-card/button-white/ui-card-corner-texture.png";
+$card-center-texture-button-white: "../img/assets/game/ui/ui-card/button-white/ui-card-center-texture.png";
+$card-side-y-texture-button-white: "../img/assets/game/ui/ui-card/button-white/ui-card-side-y-texture.png";
+$card-side-x-texture-button-white: "../img/assets/game/ui/ui-card/button-white/ui-card-side-x-texture.png";
+*/
+// #endregion
+
+// #region Import Components
+
+@import "./components/image-scale.scss";
+@import "./components/page.scss";
+@import "./components/page-center.scss";
+
+@import "./components/mafia-background.scss";
+@import "./components/main-page/hero-container.scss";
+@import "./components/main-page/hero-logo.scss";
+@import "./components//main-page/hero-option-button-container.scss";
+@import "./components//main-page/hero-option-button.scss";
+@import "./components//main-page/hero-input.scss";
+@import "./components//main-page/hero-button.scss";
+@import "./components//main-page/hero-href-container.scss";
+@import "./components//main-page/hero-disclaimer-container.scss";
+
+@import "./components/game/game.scss";
+@import "./components/game/game-header.scss";
+@import "./components/game/game-footer.scss";
+@import "./components/game/game-countdown.scss";
+@import "./components/game/game-chat.scss";
+@import "./components/game/player.scss";
+@import "./components/game/game-night-overlay.scss";
+@import "./components/game/error-message.scss";
+@import "./components/game/full-message.scss";
+@import "./components/game/pixel-background.scss";
+
+// #endregion
+
+html {
+    font-family: "Pixel";
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}

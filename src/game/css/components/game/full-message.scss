@@ -1,0 +1,68 @@
+.full-message-container {
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.full-message-card-shadow-default {
+    width: 100%;
+    height: 100%;
+    background-color: $color-black-transparent-03;
+}
+
+.full-message-card-shadow-success {
+    width: 100%;
+    height: 100%;
+    background-color: $color-green-transparent-03;
+}
+
+.full-message-card-shadow-fail {
+    width: 100%;
+    height: 100%;
+    background-color: $color-red-transparent-03;
+}
+
+.full-message-card {
+    position: absolute;
+    top: 50%;
+    left: 64px;
+    width: calc(100% - 128px);
+    height: fit-content;
+    transform: translateY(-50%);
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+
+    span {
+        z-index: 1;
+        margin-top: 32px;
+        margin-bottom: 32px;
+        margin-left: 16px;
+        margin-right: 16px;
+        width: 60%;
+        height: fit-content;
+        overflow-wrap: break-word;
+        color: $color-white;
+        font-size: 36px;
+        pointer-events: none;
+        user-select: none;
+    }
+}
+
+.full-message-card-default {
+    @extend .full-message-card;
+
+}
+
+.full-message-card-fail {
+    @extend .full-message-card;
+
+}
+
+.full-message-card-success {
+    @extend .full-message-card;
+
+}

@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Pixel';
+    src: url('./pixel-font.eot');
+    src: url('./pixel-font.eot?#iefix') format('embedded-opentype'), url('./pixel-font.woff2') format('woff2'),
+        url('./pixel-font.woff') format('woff'), url('./pixel-font.ttf') format('truetype'),
+        url('./pixel-font.svg#FontName') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

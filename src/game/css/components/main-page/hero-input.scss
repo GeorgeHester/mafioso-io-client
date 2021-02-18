@@ -1,0 +1,43 @@
+.hero-input-container {
+    position: relative;
+
+    input {
+        position: relative;
+        z-index: 1;
+
+        height: 100%;
+        align-self: center;
+        width: 100%;
+    
+        padding: 16px;
+    
+        font-family: "Pixel";
+        font-size: 24px;
+    
+        color: $color-black;
+    
+        border: none;
+    
+        background: none;
+    
+        box-sizing: border-box;
+    
+        text-transform: none;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0px;
+        outline: none;
+    
+        border-radius: none;
+
+        &:-internal-autofill-selected {
+            background-color: transparent;
+        }
+    }
+
+}
+
+.hero-input-tag {
+    font-family: "Pixel";
+    font-size: 18px;
+    margin-bottom: 16px;
+}

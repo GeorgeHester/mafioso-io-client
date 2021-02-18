@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="icon" type="image/x-icon" href="../img/favicon/favicon.ico">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mafioso - Free Multiplayer Mafia Game</title>
+</head>
+
+<body>
+    <div id="game-id" style="display: none;">
+        <%= gameId %>
+    </div>
+
+    <div id="page-home" class="page mafia-background">
+
+        <div class="hero-container">
+
+            <div class="hero-logo-container">
+                <img class="hero-logo" src="../img/assets/logo/mafioso-logo.gif">
+            </div>
+
+            <div class="hero-option-button-container">
+                <button id="page-main-create-game-button">
+                    <span>Create Game</span>
+                    <div class="pixel-background" pbid="page-main-create-game-button" pbtype="button" pbstyle="blue"
+                        pbhoverstyle="blueHover">
+                    </div>
+                </button>
+                <button id="page-main-join-game-button">
+                    <span>Join Game</span>
+                    <div class="pixel-background" pbid="page-main-join-game-button" pbtype="button" pbstyle="green"
+                        pbhoverstyle="greenHover">
+                    </div>
+                </button>
+            </div>
+
+            <div class="hero-href-container">
+                <a class="hero-href-text" href="mailto:support@mafioso.io">Contact</a>
+                <a class="hero-href-text" href="mailto:support@mafioso.io">Terms Of Service</a>
+                <a class="hero-href-text" href="https://www.nightfoxdev.com">NightFoxDev</a>
+            </div>
+
+            <div class="hero-disclaimer-container">
+                <span>
+                    <a>The owner of this web site and any other sub sites is not responsible for user generated
+                        content
+                        such as
+                        messages and names. </a>
+                </span>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="page-create-game" class="page mafia-background">
+        <div class="page-center">
+            <button id="page-create-game-back-button" class="hero-button hero-button-back"
+                style="margin-bottom: 16px; width: 128px; align-self: flex-start;">
+                <span>Back</span>
+                <div class="card-background">
+                </div>
+            </button>
+            <a class="hero-input-tag">Name</a>
+            <div class="hero-input-container">
+                <input id="page-create-game-input" class="hero-input" type="text">
+                <div class="card-background">
+                </div>
+            </div>
+            <button id="page-create-game-button" class="hero-button hero-button-blue" style="margin-top: 32px;">
+                <span>Create Game</span>
+                <div class="card-background">
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <div id="page-join-game" class="page mafia-background">
+        <div class="page-center">
+            <button id="page-join-game-back-button" class="hero-button hero-button-back"
+                style="margin-bottom: 16px; width: 128px; align-self: flex-start;">
+                <span>Back</span>
+                <div class="card-background">
+                </div>
+            </button>
+            <a class="hero-input-tag">Name</a>
+            <div class="hero-input-container">
+                <input id="page-join-game-input" class="hero-input" type="text">
+                <div class="card-background">
+                </div>
+            </div>
+            <button id="page-join-game-button" class="hero-button hero-button-green" style="margin-top: 32px;">
+                <span>Join Game</span>
+                <div class="card-background">
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <div id="page-game" class="page">
+
+        <div id="full-messages-container" style="display: none;" class="full-message-container">
+        </div>
+
+        <div class="game-header-footer-container">
+
+            <div class="game-header-container">
+                <img class="game-header-logo" src="../img/assets/logo/mafioso-logo.gif">
+                <div class="game-header-advert-container"><span>Advert Goes Here</span></div>
+            </div>
+
+            <div id="game-container" class="game-container">
+                <button id="button-open-chat" class="game-chat-button">
+                    <img src="../img/assets/game/ui/icon-message.png">
+                    <div class="pixel-background" pbid="button-open-chat" pbtype="button" pbstyle="black"
+                        pbhoverstyle="blackHover">
+                    </div>
+                </button>
+                <div id="error-messages-container" class="error-message-container">
+                </div>
+                <div id="game-players-container">
+
+                    <div class="player-card" client-id="x1" id="player-card-x1"
+                        style="position: absolute; left: 650px; top: 250px;">
+                        <img src="http://127.0.0.1:5501/dist/images/25e8d28272306bf1.png"
+                            style="width: 61.2195px; height: 61.2195px;">
+                        <span>
+                            Test TT
+                        </span>
+                        <div class="pixel-background" pbid="test" pbtype="card" pbstyle="white"
+                            pbhoverstyle="whiteHover">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="game-night-overlay">
+                </div>
+                <div id="game-chat-container" class="game-chat-container">
+                    <div class="pixel-background" pbid="game-chat-container" pbtype="card" pbstyle="whiteHover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-footer-container">
+                <div class="game-footer-left-container">
+                    <div class="game-countdown-container">
+                        <div class="game-countdown-clock-container">
+                            <span id="game-countdown-clock">00:00</span>
+                            <div class="pixel-background" pbid="game-countdown-clock" pbtype="button"
+                                pbstyle="whiteHover">
+                            </div>
+                        </div>
+                        <div class="game-countdown-info-container">
+                            <span id="game-countdown-info"></span>
+                            <div class="pixel-background" pbid="game-countdown-info" pbtype="button" pbstyle="black">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="game-footer-left-button-container">
+                        <button id="button-confirm" style="display: none;" class="game-footer-left-button">
+                            <span>Confirm</span>
+                            <div class="pixel-background" pbid="button-confirm" pbtype="button" pbstyle="green"
+                                pbhoverstyle="greenHover">
+                            </div>
+                        </button>
+                        <button id="button-start-game" style="display: block;" class="game-footer-left-button">
+                            <span>Start Game</span>
+                            <div class="pixel-background" pbid="button-start-game" pbtype="button" pbstyle="green"
+                                pbhoverstyle="greenHover">
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="game-footer-right-container">
+                    <div class="game-footer-right-copy-input-container">
+                        <input id="button-copy-input" type="text" readonly>
+                        <div class="pixel-background" pbid="button-copy-input" pbtype="button" pbstyle="whiteHover">
+                        </div>
+                    </div>
+                    <button id="button-copy" class="game-footer-right-copy-button">
+                        <img src="../img/assets/game/ui/icon-copy.png">
+                        <div class="pixel-background" pbid="button-copy" pbtype="button" pbstyle="blue"
+                            pbhoverstyle="blueHover">
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

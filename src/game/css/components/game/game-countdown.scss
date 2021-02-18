@@ -1,0 +1,134 @@
+.game-countdown-container {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.game-countdown-clock-container {
+    position: relative;
+    margin-left: 8px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    margin-right: 8px;
+    width: 128px;
+    height: calc(100% - 12px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+        position: relative;
+        z-index: 1;
+        color: $color-black;
+        font-size: 18px;
+    }
+
+
+}
+/*
+.game-countdown-clock-container-danger {
+    span {
+        animation: game-countdown-clock-container-span-animation .5s infinite;
+    }
+
+
+}
+
+@keyframes game-countdown-clock-container-span-animation {
+    0% {
+        color: $color-white;
+    }
+    49% {
+        color: $color-white;
+    }
+    50% {
+        color: $color-black;
+    }
+    100% {
+        color: $color-black;
+    }
+}
+
+@keyframes game-countdown-clock-container-background-corner-animation {
+    0% {
+        background-image: url($card-corner-texture-button-danger);
+    }
+    49% {
+        background-image: url($card-corner-texture-button-danger);
+    }
+    50% {
+        background-image: url($card-corner-texture-button-disabled);
+    }
+    100% {
+        background-image: url($card-corner-texture-button-disabled);
+    }
+}
+
+@keyframes game-countdown-clock-container-background-side-y-animation {
+    0% {
+        background-image: url($card-side-y-texture-button-danger);
+    }
+    49% {
+        background-image: url($card-side-y-texture-button-danger);
+    }
+    50% {
+        background-image: url($card-side-y-texture-button-disabled);
+    }
+    100% {
+        background-image: url($card-side-y-texture-button-disabled);
+    }
+}
+
+@keyframes game-countdown-clock-container-background-side-x-animation {
+    0% {
+        background-image: url($card-side-x-texture-button-danger);
+    }
+    49% {
+        background-image: url($card-side-x-texture-button-danger);
+    }
+    50% {
+        background-image: url($card-side-x-texture-button-disabled);
+    }
+    100% {
+        background-image: url($card-side-x-texture-button-disabled);
+    }
+}
+
+@keyframes game-countdown-clock-container-background-center-animation {
+    0% {
+        background-image: url($card-center-texture-button-danger);
+    }
+    49% {
+        background-image: url($card-center-texture-button-danger);
+    }
+    50% {
+        background-image: url($card-center-texture-button-disabled);
+    }
+    100% {
+        background-image: url($card-center-texture-button-disabled);
+    }
+}*/
+
+.game-countdown-info-container {
+    position: relative;
+    margin-left: 0;
+    margin-top: 8px;
+    margin-bottom: 4px;
+    margin-right: 8px;
+    width: calc(100% - 152px);
+    height: calc(100% - 12px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    span {
+        position: relative;
+        z-index: 1;
+        color: $color-white;
+        font-size: 18px;
+        margin-left: 16px;
+    }
+
+
+}

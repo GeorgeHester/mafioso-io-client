@@ -1,0 +1,8 @@
+.game-chat-container {
+    position: absolute;
+    z-index: 10;
+    top: 64px;
+    left: 8px;
+    width: calc(100% - 16px);
+    height: calc(100% - 64px);
+}

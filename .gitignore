@@ -1,0 +1,14 @@
+# Exclude all node modules
+node_modules
+
+# Exclude vs code settings
+.vscode
+
+# Exclude current build files
+dist/*
+
+# Exclude public views 
+public
+
+# Exclude dump files 
+dump.js

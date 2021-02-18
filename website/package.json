@@ -1,0 +1,25 @@
+{
+  "name": "mafia-game-website",
+  "version": "1.0.0",
+  "description": "Express app to host front end service for mafia game.",
+  "main": "server.js",
+  "scripts": {
+    "server": "node server.js",
+    "test-server": "nodemon server.js"
+  },
+  "author": {
+    "name": "NightFoxDev",
+    "url": "http://www.nightfoxdev.com"
+  },
+  "contributors": [
+    "George Hester"
+  ],
+  "license": "UNLICENSED",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

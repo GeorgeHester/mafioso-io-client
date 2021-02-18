@@ -1,0 +1,25 @@
+.hero-href-container {
+    margin-top: 48px;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    font-size: 14px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.hero-href-container a {
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.hero-href-container:first-child {
+    margin-left: 0px;
+    margin-right: 4px;
+}
+
+.hero-href-container:last-child {
+    margin-left: 4px;
+    margin-right: 0px;
+}

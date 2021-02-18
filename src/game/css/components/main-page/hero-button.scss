@@ -1,0 +1,78 @@
+.hero-button {
+    position: relative;
+
+    height: 100%;
+    align-self: center;
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    box-sizing: border-box;
+
+    text-transform: none;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+    outline: none;
+
+    border-radius: none;
+
+    cursor: default;
+
+    span {
+        position: relative;
+        z-index: 1;
+        font-family: "Pixel";
+        font-size: 24px;
+        color: $color-white;
+    }
+
+
+}
+
+.hero-button-blue {
+}
+
+.hero-button-blue:hover {
+    cursor: pointer;
+
+    span {
+        filter: brightness(0.9);
+    }
+
+
+}
+
+.hero-button-green {
+
+}
+
+.hero-button-green:hover {
+    cursor: pointer;
+
+    span {
+        filter: brightness(0.9);
+    }
+
+
+}
+
+.hero-button-back {
+    span {
+        color: $color-black;
+        font-size: 18px;
+    }
+
+
+}
+
+.hero-button-back:hover {
+    cursor: pointer;
+
+    span {
+        filter: brightness(0.9);
+    }
+
+
+}

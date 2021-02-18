@@ -1,0 +1,26 @@
+.hero-disclaimer-container {
+    margin-top: 16px;
+    position: relative;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+}
+
+.hero-disclaimer-container span {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .hero-logo {
+        margin-top: 96px;
+        width: 50%;
+    }
+    .hero-disclaimer-container span {
+        width: 50%;
+    }
+}

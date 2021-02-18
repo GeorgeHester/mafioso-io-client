@@ -1,0 +1,160 @@
+.game-footer-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+.game-footer-left-container {
+    position: relative;
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.game-footer-right-container {
+    position: relative;
+    width: 30%;
+    height: 100%;
+}
+
+.game-footer-left-button-container {
+    width: 100%;
+    height: 60px;
+}
+
+.game-footer-left-button {
+    position: relative;
+    margin-left: 8px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    margin-right: 8px;
+    width: calc(100% - 16px);
+    height: calc(100% - 12px);
+    -webkit-appearance: none;
+    border-radius: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: default;
+
+    span {
+        position: relative;
+        z-index: 1;
+        font-family: "Pixel";
+        font-size: 16px;
+        color: $color-white;
+    }
+
+
+
+    &:hover {
+        cursor: pointer;
+
+        span {
+            filter: brightness(0.8);
+        }
+
+
+    }
+
+    &:disabled {
+        span {
+            color: $color-black;
+            filter: opacity(0.5);
+        }
+
+
+    }
+}
+
+.game-footer-right-copy-button {
+    position: absolute;
+    z-index: 5;
+    bottom: 8px;
+    right: 8px;
+    width: 48px;
+    height: 48px;
+    -webkit-appearance: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: none;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+        @extend .image-scale;
+
+        position: relative;
+        z-index: 6;
+        width: 16px;
+        height: 16px;
+        transition: filter 0.125s;
+    }
+
+
+    &:hover {
+        img {
+            filter: brightness(0.8);
+        }
+
+
+    }
+}
+
+.game-footer-right-copy-input-container {
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    width: calc(100% - 64px);
+    height: 48px;
+
+    input {
+        position: relative;
+        width: calc(100% - 32px);
+        height: 100%;
+        z-index: 1;
+        -webkit-appearance: none;
+        border-radius: 0;
+        margin: 0;
+        padding: 0px 16px 0px 16px;
+        border: none;
+        outline: none;
+        font-family: "Pixel";
+        font-size: 18px;
+        background: none;
+    }
+
+
+}
+
+@media screen and (max-width: 1024px) {
+    .game-footer-container {
+        height: 176px;
+        flex-direction: column;
+    }
+
+    .game-footer-left-container {
+        width: 100%;
+        height: 120px;
+    }
+
+    .game-footer-right-container {
+        width: 100%;
+        height: 60px;
+    }
+
+    .game-footer-right-copy-input-container {
+        left: 8px;
+        width: calc(100% - 72px);
+    }
+}

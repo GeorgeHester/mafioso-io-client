@@ -1,0 +1,43 @@
+.hero-logo {
+    width: 100%;
+    height: auto;
+}
+
+.hero-logo-container {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+@media screen and (max-width: 425px) {
+    .hero-logo {
+        margin-top: 48px;
+    }
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+    .hero-logo {
+        margin-top: 48px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .hero-logo {
+        margin-top: 96px;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .hero-logo {
+        margin-top: 96px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .hero-logo {
+        margin-top: 72px;
+    }
+}
