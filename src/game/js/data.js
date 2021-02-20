@@ -2,7 +2,7 @@
     Server Defaults
 */
 let webSocket = {
-    url: "ws://192.168.0.63:8080",
+    url: "ws://192.168.0.100",
     webSocket: null
 };
 
