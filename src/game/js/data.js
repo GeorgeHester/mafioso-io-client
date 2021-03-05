@@ -4,8 +4,8 @@
 let mode = 'debug';
 
 let webSocket = {
-    //url: "wss://api.mafioso.io",
-    url: "ws://192.168.0.63:8080",
+    url: "wss://api.mafioso.io",
+    //url: "ws://192.168.0.63:8080",
     webSocket: null,
     isOpen: false
 };
