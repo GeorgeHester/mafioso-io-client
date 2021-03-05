@@ -29,8 +29,9 @@
     
         border-radius: none;
 
-        &:-internal-autofill-selected {
-            background-color: transparent;
+        &:-webkit-autofill {
+            background: none;
+            -webkit-appearance: none;
         }
     }
 

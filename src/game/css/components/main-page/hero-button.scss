@@ -26,53 +26,21 @@
         font-family: "Pixel";
         font-size: 24px;
         color: $color-white;
+        pointer-events: none;
     }
 
-
-}
-
-.hero-button-blue {
-}
-
-.hero-button-blue:hover {
-    cursor: pointer;
-
-    span {
-        filter: brightness(0.9);
+    &.hero-button-back {
+        span {
+            color: $color-black;
+            font-size: 18px;
+        }
     }
 
+    &:hover {
+        cursor: pointer;
 
-}
-
-.hero-button-green {
-
-}
-
-.hero-button-green:hover {
-    cursor: pointer;
-
-    span {
-        filter: brightness(0.9);
+        span {
+            filter: brightness(0.9);
+        }
     }
-
-
-}
-
-.hero-button-back {
-    span {
-        color: $color-black;
-        font-size: 18px;
-    }
-
-
-}
-
-.hero-button-back:hover {
-    cursor: pointer;
-
-    span {
-        filter: brightness(0.9);
-    }
-
-
 }

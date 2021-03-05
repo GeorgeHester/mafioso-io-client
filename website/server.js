@@ -50,5 +50,5 @@ app.get('/:gameId', (req, res) => {
     Set server to listen on port 
 */
 app.listen(config.server.port, () => {
-    console.log(`[ Server ][ Online ]`);
+    console.log(`[ Server ][ Online ][ Port: ${config.server.port} ]`);
 });

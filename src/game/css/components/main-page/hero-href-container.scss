@@ -12,6 +12,11 @@
 .hero-href-container a {
     margin-left: 4px;
     margin-right: 4px;
+    color: $color-blue;
+}
+
+.hero-href-container a:hover {
+    color: $color-red;
 }
 
 .hero-href-container:first-child {
@@ -19,7 +24,7 @@
     margin-right: 4px;
 }
 
-.hero-href-container:last-child {
+.hero-href-container:last-child { 
     margin-left: 4px;
     margin-right: 0px;
 }

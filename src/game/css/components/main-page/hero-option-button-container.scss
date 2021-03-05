@@ -16,13 +16,14 @@
         outline: none;
         background: none;
         cursor: default;
-    
+
         span {
             position: relative;
             z-index: 1;
             font-family: "Pixel";
             font-size: 24px;
             color: $color-white;
+            pointer-events: none;
         }
 
         &:hover {
@@ -32,32 +33,44 @@
                 filter: brightness(0.9);
             }
         }
-    } 
+    }
+}
+
+.hero-option-button-container-bottom {
+    margin-top: 48px;
 }
 
 @media screen and (max-width: 768px) {
-
     .hero-option-button-container {
         flex-direction: column;
+        margin-top: 128px;
 
         button {
             width: 100%;
             align-self: center;
 
             &:nth-child(2) {
-                margin-top: 48px;
+                margin-top: 24px;
             }
         }
+    }
+
+    .hero-option-button-container-bottom {
+        margin-top: 24px;
     }
 }
 
 @media screen and (min-width: 768px) {
-
     .hero-option-button-container {
         flex-direction: row;
 
-        button {
+        .hero-option-button-full-width {
+            &:nth-child(1) {
+                margin: 0;
+            }
+        }
 
+        button {
             width: 100%;
 
             &:nth-child(1) {

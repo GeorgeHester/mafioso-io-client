@@ -22,10 +22,12 @@ buttonOpenChat.addEventListener('click', () => {
         data.game.chatOpen = false;
         buttonOpenChat.children[0].src = chatImage;
         gameChatContainer.style.display = 'none';
+        gameChatContainer.getElementsByClassName('pixel-background')[0].innerHTML = '';
     } else {
 
         data.game.chatOpen = true;
         buttonOpenChat.children[0].src = closeImage;
         gameChatContainer.style.display = 'block';
+        pixelBackgroundDrawer.drawPixelBackground('card', 'whiteHover', gameChatContainer.getElementsByClassName('pixel-background')[0], 'game-chat-conatiner');
     };
 });

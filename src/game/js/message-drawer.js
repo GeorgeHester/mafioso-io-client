@@ -2,85 +2,119 @@
     Module import(s)
 */
 import * as data from './data';
+import * as uuidGenerator from './uuid-generator';
+import * as renderQueueHandler from './render-queue-handler';
 
 function drawErrorMessage(error, persistent) {
 
-    // Get contatiner element 
-    let errorMessagesContainer = document.getElementById("error-messages-container");
+    // Get error messages contatiner element 
+    let errorMessagesContainerElement = document.getElementById('error-messages-container');
 
-    // Generate new error message element 
-    let errorMessageCardElement = document.createElement('div');
-    errorMessageCardElement.className = 'error-message-card';
+    // Generate uuid for message
+    let errorMessageId = uuidGenerator.generateUuid();
 
-    let errorMessageCardTextElement = document.createElement('span');
-    errorMessageCardTextElement.innerHTML = error;
+    // Generate message html and append
+    errorMessagesContainerElement.insertAdjacentHTML('beforeend', `
+    <div id="error-message-${errorMessageId}" class="error-message">
+        <span>${error}</span>
+        <div class="pixel-background">
+        </div>
+    </div>
+    `);
 
-    // Generates player background element 
-    let errorMessageCardBackgroundElement = document.createElement('div');
-    errorMessageCardBackgroundElement.className = 'card-background';
-    errorMessageCardBackgroundElement.innerHTML = data.cardBackgroundInnerHtml;
+    // Add message to the render queue
+    data.renderQueue[`error-message-${errorMessageId}`] = {
+        id: `error-message-${errorMessageId}`,
+        parent: document.getElementById(`error-message-${errorMessageId}`).getElementsByClassName('pixel-background')[0],
+        type: 'button',
+        style: 'red',
+        hoverStyle: null,
+        hoverElementId: null,
+        focusStyle: null,
+        focusElementId: null
+    };
 
-    // Append elements to error message card 
-    errorMessageCardElement.appendChild(errorMessageCardTextElement);
-    errorMessageCardElement.appendChild(errorMessageCardBackgroundElement);
+    // Render the items in the render queue
+    renderQueueHandler.renderRenderQueue(window.innerWidth, window.innerHeight);
 
-    // Append error message to container
-    errorMessagesContainer.appendChild(errorMessageCardElement);
-
-    // Check if persistant to remove message
+    // Check if persistent and remove element after 3 seconds if not
     if (!persistent) {
-        setTimeout(removeErrorMessage, 3000, errorMessageCardElement);
+        setTimeout(removeErrorMessage, 3000, errorMessageId);
     };
 };
 
-function removeErrorMessage(errorMessageCardElement) {
+function removeErrorMessage(errorMessageId) {
 
-    // Get contatiner element 
-    let errorMessagesContainer = document.getElementById('error-messages-container');
-
-    errorMessagesContainer.removeChild(errorMessageCardElement);
+    // Remove html element from dom and entry from render queue
+    document.getElementById(`error-message-${errorMessageId}`).remove();
+    delete data.renderQueue[`error-message-${errorMessageId}`];
 };
 
 function drawFullScreenMessage(message, type, persistent, timeout) {
 
-    // Get contatiner element 
-    let fullScreenMessagesContainer = document.getElementById("full-messages-container");
-    fullScreenMessagesContainer.style.display = 'block';
+    let style;
 
-    let fullScreenMessageCardContainer = document.createElement("div");
-    fullScreenMessageCardContainer.className = `full-message-card-shadow-${type}`;
+    // Set the style for correct message type
+    switch (type) {
+        case 'default':
+            style = 'black';
+            break;
+        case 'success':
+            style = 'lime';
+            break;
+        case 'fail':
+            style = 'red';
+            break;
+    };
 
-    let fullScreenMessageCardElement = document.createElement("div");
-    fullScreenMessageCardElement.className = `full-message-card-${type}`;
+    // Get full screen messages contatiner element 
+    let fullScreenMessagesContainerElement = document.getElementById("full-messages-container");
+    fullScreenMessagesContainerElement.style.display = 'block';
 
-    let fullScreenMessageCardTextElement = document.createElement("span");
-    fullScreenMessageCardTextElement.innerHTML = message;
+    // Generate uuid for message
+    let fullScreenMessageId = uuidGenerator.generateUuid();
 
-    // Generates full screen message background element 
-    let fullScreenMessageCardBackgroundElement = document.createElement('div');
-    fullScreenMessageCardBackgroundElement.className = 'card-background';
-    fullScreenMessageCardBackgroundElement.innerHTML = data.cardBackgroundInnerHtml;
+    // Generate message html and append
+    fullScreenMessagesContainerElement.insertAdjacentHTML('beforeend', `
+    <div id="full-message-${fullScreenMessageId}" class="full-message-shadow-${type}">
+        <div class="full-message">
+            <span>${message}</span>
+            <div class="pixel-background">
+            </div>
+        </div>
+    </div>
+    `);
 
-    fullScreenMessageCardElement.appendChild(fullScreenMessageCardTextElement);
-    fullScreenMessageCardElement.appendChild(fullScreenMessageCardBackgroundElement);
+    // Add message to the render queue
+    data.renderQueue[`full-message-${fullScreenMessageId}`] = {
+        id: `full-message-${fullScreenMessageId}`,
+        parent: document.getElementById(`full-message-${fullScreenMessageId}`).getElementsByClassName('pixel-background')[0],
+        type: 'card',
+        style: style,
+        hoverStyle: null,
+        hoverElementId: null,
+        focusStyle: null,
+        focusElementId: null
+    };
 
-    fullScreenMessageCardContainer.appendChild(fullScreenMessageCardElement);
+    // Render the items in the render queue
+    renderQueueHandler.renderRenderQueue(window.innerWidth, window.innerHeight);
 
-    fullScreenMessagesContainer.appendChild(fullScreenMessageCardContainer);
-
-    // Check if persistant to remove message
+    // Check if persistent and remove element
     if (!persistent) {
-        setTimeout(removeFullScreenMessage, timeout, fullScreenMessageCardContainer);
+        setTimeout(removeFullScreenMessage, timeout, fullScreenMessageId);
     };
 };
 
-function removeFullScreenMessage(fullScreenMessageCardContainer) {
+function removeFullScreenMessage(fullScreenMessageId) {
 
-    // Get contatiner element 
-    let fullScreenMessagesContainer = document.getElementById("full-messages-container");
-    fullScreenMessagesContainer.style.display = 'none';
+    // Get full screen messages contatiner element 
+    let fullScreenMessagesContainerElement = document.getElementById("full-messages-container");
+    fullScreenMessagesContainerElement.style.display = 'none';
 
-    fullScreenMessagesContainer.removeChild(fullScreenMessageCardContainer);
+    // Remove html element from dom and entry from render queue
+    document.getElementById(`full-message-${fullScreenMessageId}`).remove();
+    delete data.renderQueue[`full-message-${fullScreenMessageId}`];
 };
 
 /*

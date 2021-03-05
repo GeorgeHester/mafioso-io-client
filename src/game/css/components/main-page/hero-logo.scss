@@ -1,6 +1,11 @@
 .hero-logo {
     width: 100%;
     height: auto;
+    image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-crisp-edges;
+    image-rendering: crisp-edges;
 }
 
 .hero-logo-container {
@@ -33,6 +38,7 @@
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
     .hero-logo {
         margin-top: 96px;
+        width: 75%;
     }
 }
 

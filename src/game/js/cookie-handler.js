@@ -3,6 +3,7 @@
 */
 import * as data from './data';
 
+// Function to get and parse current cookie object
 function parseCurrentCookies() {
 
     let cookies = document.cookie;

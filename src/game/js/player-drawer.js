@@ -3,6 +3,7 @@
 */
 import * as data from './data';
 import * as gameHandler from './game-handler';
+import * as renderQueueHandler from './render-queue-handler';
 
 /*
     Image import(s)
@@ -48,31 +49,25 @@ function addPlayer(personType, alive, selectable, clientName, clientId, counter)
         "selectable": selectable,
         "counter": counter
     });
-
-    // Calls function to draw all players
-    //drawPlayers();
 };
-
-/*addPlayer('personUnknown', true, true, 'Test TT', 'x1', 2);
-addPlayer('personMafia', true, true, 'Test TT 91', 'x2', 1);
-addPlayer('personDoctor', true, true, 'Test TT', 'x3', false);
-addPlayer('personDetective', false, true, 'Test FT', 'x4', false);
-addPlayer('personVillager', true, false, 'Test TF', 'x5', false);
-addPlayer('personUnknown', false, false, 'Test FF', 'x6', false);
-addPlayer('personDoctor', true, true, 'Test TT', 'x3', false);
-addPlayer('personDetective', false, true, 'Test FT', 'x4', false);
-addPlayer('personVillager', true, false, 'Test TF', 'x5', false);
-addPlayer('personUnknown', false, false, 'Test FF', 'x6', false);*/
-
-//drawPlayers();
 
 /*
     Function to clear players from currentPlayers arrray
 */
 function clearPlayers() {
 
+    // Removes all render queue enteries
+    for (let i = 0; i < data.currentPlayers.length; i++) {
+
+        delete data.renderQueue[data.currentPlayers[i].clientId];
+
+        if (data.currentPlayers[i].counter) {
+            delete data.renderQueue[data.currentPlayers[i].clientId + '-counter'];
+        };
+    };
+
     // Resets current players array to default state
-    //data.currentPlayers = [];
+    data.currentPlayers = [];
 };
 
 /*
@@ -91,22 +86,50 @@ function drawPlayers() {
 
     // Calculate angle between players and set defualt client size
     let seperationAngle = (2 * Math.PI) / data.currentPlayers.length;
-    let clientSize = 0;
+    let clientSize, clientSizeX, clientSizeY = 0;
 
     // Set the min size to the client size
     if (gameContainerElement.clientHeight > gameContainerElement.clientWidth) {
 
-        clientSize = gameContainerElement.clientWidth - (gameContainerElement.clientWidth * (1 / 3));
+        clientSizeX = gameContainerElement.clientWidth * (2 / 3);
+        clientSize = clientSizeX;
+        clientSizeY = gameContainerElement.clientHeight - gameContainerElement.clientWidth * (1 / 3);
+
+        /*clientSizeX = gameContainerElement.clientWidth * (2 / 3);
+        clientSize = clientSizeX;
+
+        if (gameContainerElement.clientWidth * (4 / 3) < gameContainerElement.clientHeight * (2 / 3)) {
+            clientSizeY = gameContainerElement.clientWidth * (4 / 3);
+        } else {
+            clientSizeY = gameContainerElement.clientHeight * (2 / 3);
+        };*/
     } else {
 
-        clientSize = gameContainerElement.clientHeight - (gameContainerElement.clientHeight * (1 / 3));
+        clientSizeY = gameContainerElement.clientHeight * (2.25 / 3);
+        clientSize = clientSizeY;
+        clientSizeX = gameContainerElement.clientWidth - gameContainerElement.clientHeight * (0.75 / 3);
+
+        /*clientSizeY = gameContainerElement.clientHeight * (2.25 / 3);
+        clientSize = clientSizeY;
+
+        if (gameContainerElement.clientHeight * (4 / 3) < gameContainerElement.clientWidth * (1 / 2)) {
+            clientSizeX = gameContainerElement.clientHeight * (4 / 3);
+        } else {
+            clientSizeX = gameContainerElement.clientWidth * (1 / 2);
+        };
+
+        clientSizeX = clientSizeY * (4 / 3);*/
     };
 
     // Loops through all players in the current players array
     for (let i = 0; i < data.currentPlayers.length; i++) {
 
+        let style = '';
+        let hoverStyle = '';
+
         // Generates player card element
         let playerCardElement = document.createElement('div');
+
 
         // Sets style based on player status
         if (data.currentPlayers[i].alive) {
@@ -114,13 +137,19 @@ function drawPlayers() {
             if (data.currentPlayers[i].selectable) {
 
                 playerCardElement.className = 'player-card';
+                style = 'white';
+                hoverStyle = 'whiteHover';
             } else {
 
                 playerCardElement.className = 'player-card-disabled';
+                style = 'whiteDisabled';
+                hoverStyle = 'whiteDisabled';
             };
         } else {
 
             playerCardElement.className = 'player-card-dead';
+            style = 'redLight';
+            hoverStyle = 'redLight';
         };
 
         playerCardElement.setAttribute('client-id', data.currentPlayers[i].clientId);
@@ -159,7 +188,26 @@ function drawPlayers() {
 
         if (data.currentPlayers[i].counter) {
 
-            // Generate counter elements
+            playerCardElement.insertAdjacentHTML('beforeend', `
+            <div class="player-card-counter">
+                <span>${data.currentPlayers[i].counter}</span>
+                <div class="pixel-background">
+                </div>
+            </div>
+            `);
+
+            data.renderQueue[data.currentPlayers[i].clientId + '-counter'] = {
+                id: data.currentPlayers[i].clientId + '-counter',
+                parent: playerCardElement.getElementsByClassName('pixel-background')[0],
+                type: 'button',
+                style: 'red',
+                hoverStyle: null,
+                hoverElementId: null,
+                focusStyle: null,
+                focusElementId: null
+            };
+
+            /*// Generate counter elements
             let playerCounterElement = document.createElement('div');
             let playerCounterTextElement = document.createElement('span');
 
@@ -170,23 +218,37 @@ function drawPlayers() {
             playerCounterTextElement.innerHTML = data.currentPlayers[i].counter;
 
             playerCounterElement.appendChild(playerCounterTextElement);
-            playerCardElement.appendChild(playerCounterElement);
+            playerCardElement.appendChild(playerCounterElement);*/
         };
 
         // Generates player background element 
-        let playerBackgroundElement = document.createElement('div');
-        playerBackgroundElement.className = 'card-background';
-        playerBackgroundElement.innerHTML = data.cardBackgroundInnerHtml;
+        let playerPixelBackgroundElement = document.createElement('div');
+        playerPixelBackgroundElement.className = 'pixel-background';
 
-        playerCardElement.appendChild(playerBackgroundElement);
+        playerCardElement.appendChild(playerPixelBackgroundElement);
 
         // Set player block element position on screen
-        playerCardElement.style.position = 'absolute'
-        playerCardElement.style.left = `${(gameContainerElement.clientWidth / 2) + (Math.cos((seperationAngle * (i + 1)) - (Math.PI / 2))) * (clientSize / 2)}px`;
-        playerCardElement.style.top = `${(gameContainerElement.clientHeight / 2) + (Math.sin((seperationAngle * (i + 1)) - (Math.PI / 2))) * (clientSize / 2)}px`;
+        playerCardElement.style.position = 'absolute';
+        playerCardElement.style.left = `${Math.round((gameContainerElement.clientWidth / 2) + (Math.cos((seperationAngle * (i + 1)) - (Math.PI / 2))) * (clientSizeX / 2))}px`;
+        playerCardElement.style.top = `${Math.round((gameContainerElement.clientHeight / 2) + (Math.sin((seperationAngle * (i + 1)) - (Math.PI / 2))) * (clientSizeY / 2))}px`;
 
         playersContainerElement.appendChild(playerCardElement);
+
+
+
+        data.renderQueue[data.currentPlayers[i].clientId] = {
+            id: data.currentPlayers[i].clientId,
+            parent: playerPixelBackgroundElement,
+            type: 'card',
+            style: style,
+            hoverStyle: hoverStyle,
+            hoverElementId: `player-card-${data.currentPlayers[i].clientId}`,
+            focusStyle: null,
+            focusElementId: null
+        };
     };
+
+    renderQueueHandler.renderRenderQueue(window.innerWidth, window.innerHeight);
 };
 
 /*

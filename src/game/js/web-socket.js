@@ -17,6 +17,8 @@ data.webSocket.webSocket = new WebSocket(data.webSocket.url);
 */
 data.webSocket.webSocket.onopen = () => {
 
+    data.webSocket.isOpen = true;
+
     if (data.cookies.clientId) {
         data.player.clientId = data.cookies.clientId;
 
@@ -152,7 +154,7 @@ data.webSocket.webSocket.onmessage = (message) => {
 
     if (jsonMessage.method === 'fullScreenMessage') {
 
-        messageDrawer.drawFullScreenMessage(jsonMessage.message, jsonMessage.messageType);
+        messageDrawer.drawFullScreenMessage(jsonMessage.message, jsonMessage.messageType, jsonMessage.messagePersistent, jsonMessage.messageTimeout);
         return;
     };
 
@@ -165,10 +167,14 @@ data.webSocket.webSocket.onmessage = (message) => {
 
 data.webSocket.webSocket.onclose = () => {
 
+    data.webSocket.isOpen = false;
+
     messageDrawer.drawErrorMessage('Server disconnected.', true);
 };
 
 data.webSocket.webSocket.onerror = () => {
+
+    data.webSocket.isOpen = false;
 
     messageDrawer.drawErrorMessage('Cannot connect to server. Try again by refreshing the page.', true);
 };

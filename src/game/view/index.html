@@ -25,14 +25,23 @@
             <div class="hero-option-button-container">
                 <button id="page-main-create-game-button">
                     <span>Create Game</span>
-                    <div class="pixel-background" pbid="page-main-create-game-button" pbtype="button" pbstyle="blue"
-                        pbhoverstyle="blueHover">
+                    <div class="pixel-background" pbgeneratedby="html" pbid="page-main-create-game-button"
+                        pbtype="button" pbstyle="blue" pbhoverstyle="blueHover">
                     </div>
                 </button>
                 <button id="page-main-join-game-button">
                     <span>Join Game</span>
-                    <div class="pixel-background" pbid="page-main-join-game-button" pbtype="button" pbstyle="green"
-                        pbhoverstyle="greenHover">
+                    <div class="pixel-background" pbgeneratedby="html" pbid="page-main-join-game-button" pbtype="button"
+                        pbstyle="green" pbhoverstyle="greenHover">
+                    </div>
+                </button>
+            </div>
+
+            <div class="hero-option-button-container hero-option-button-container-bottom">
+                <button class="hero-option-button-full-width" id="page-main-how-to-play-button">
+                    <span>How To Play</span>
+                    <div class="pixel-background" pbgeneratedby="html" pbid="page-main-how-to-play-button"
+                        pbtype="button" pbstyle="red" pbhoverstyle="redHover">
                     </div>
                 </button>
             </div>
@@ -44,12 +53,12 @@
             </div>
 
             <div class="hero-disclaimer-container">
-                <span>
-                    <a>The owner of this web site and any other sub sites is not responsible for user generated
-                        content
-                        such as
-                        messages and names. </a>
-                </span>
+
+                <a>The owner of this web site and any other sub sites is not responsible for user generated
+                    content
+                    such as
+                    messages and names. </a>
+
 
             </div>
 
@@ -61,40 +70,164 @@
             <button id="page-create-game-back-button" class="hero-button hero-button-back"
                 style="margin-bottom: 16px; width: 128px; align-self: flex-start;">
                 <span>Back</span>
-                <div class="card-background">
+                <div class="pixel-background" pbgeneratedby="html" pbid="page-create-game-back-button" pbtype="button"
+                    pbstyle="white" pbhoverstyle="whiteHover">
                 </div>
             </button>
-            <a class="hero-input-tag">Name</a>
+            <a class="hero-input-tag">Name (Max Length 10)</a>
             <div class="hero-input-container">
-                <input id="page-create-game-input" class="hero-input" type="text">
-                <div class="card-background">
+                <input id="page-create-game-input" class="hero-input" type="text" autocomplete="off" maxlength="10">
+                <div class="pixel-background" pbgeneratedby="html" pbid="page-create-game-input" pbtype="button"
+                    pbstyle="white" pbfocusstyle="whiteFocus" pbfocusid="page-create-game-input">
                 </div>
             </div>
-            <button id="page-create-game-button" class="hero-button hero-button-blue" style="margin-top: 32px;">
+            <button id="page-create-game-button" class="hero-button" style="margin-top: 32px;">
                 <span>Create Game</span>
-                <div class="card-background">
+                <div class="pixel-background" pbgeneratedby="html" pbid="page-create-game-button" pbtype="button"
+                    pbstyle="blue" pbhoverstyle="blueHover">
                 </div>
             </button>
         </div>
     </div>
 
-    <div id="page-join-game" class="page mafia-background">
+    <div id="page-join-game-with-id" class="page mafia-background">
         <div class="page-center">
-            <button id="page-join-game-back-button" class="hero-button hero-button-back"
+            <button id="page-join-game-with-id-back-button" class="hero-button hero-button-back"
                 style="margin-bottom: 16px; width: 128px; align-self: flex-start;">
                 <span>Back</span>
-                <div class="card-background">
+                <div class="pixel-background" pbgeneratedby="html" pbid="page-join-game-with-id-back-button"
+                    pbtype="button" pbstyle="white" pbhoverstyle="whiteHover">
                 </div>
             </button>
-            <a class="hero-input-tag">Name</a>
+            <a class="hero-input-tag">Game Id</a>
             <div class="hero-input-container">
-                <input id="page-join-game-input" class="hero-input" type="text">
-                <div class="card-background">
+                <input id="page-join-game-with-id-id-input" class="hero-input" type="text">
+                <div class="pixel-background" pbgeneratedby="html" pbid="page-join-game-with-id-id-input"
+                    pbtype="button" pbstyle="white" pbfocusstyle="whiteFocus"
+                    pbfocusid="page-join-game-with-id-id-input">
                 </div>
             </div>
-            <button id="page-join-game-button" class="hero-button hero-button-green" style="margin-top: 32px;">
+            <a class="hero-input-tag" style="margin-top: 16px;">Name (Max Length 10)</a>
+            <div class="hero-input-container">
+                <input id="page-join-game-with-id-name-input" class="hero-input" type="text" autocomplete="off"
+                    maxlength="10">
+                <div class="pixel-background" pbgeneratedby="html" pbid="page-join-game-with-id-name-input"
+                    pbtype="button" pbstyle="white" pbfocusstyle="whiteFocus"
+                    pbfocusid="page-join-game-with-id-name-input">
+                </div>
+            </div>
+            <button id="page-join-game-with-id-button" class="hero-button" style="margin-top: 32px;">
                 <span>Join Game</span>
-                <div class="card-background">
+                <div class="pixel-background" pbgeneratedby="html" pbid="page-create-game-with-id-button"
+                    pbtype="button" pbstyle="green" pbhoverstyle="greenHover">
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <div id="page-how-to-play" class="page mafia-background">
+        <div class="page-center-top">
+            <div style=" width: 100%; height: fit-content; margin-bottom: 32px;">
+                <button id="page-how-to-play-back-button" class="hero-button hero-button-back"
+                    style="width: 128px; align-self: flex-start;">
+                    <span>Back</span>
+                    <div class="pixel-background" pbgeneratedby="html" pbid="page-how-to-play-back-button"
+                        pbtype="button" pbstyle="white" pbhoverstyle="whiteHover">
+                    </div>
+                </button>
+            </div>
+            <div class="page-info-block" style="margin-bottom: 32px;">
+                <span class="header">
+                    Aim Of The Game
+                </span>
+                <span>
+                    Mafia:
+                    <br>
+                    If you are mafia your aim is to kill all of the villagers before they vote you out.
+                    <br>
+                    <br>
+                    Other:
+                    <br>
+                    If you are any other role your aim is to protect the villagers and vote off the mafia.
+                </span>
+                <div class="pixel-background" pbgeneratedby="html" pbtype="card" pbstyle="white">
+                </div>
+            </div>
+            <div class="page-info-block" style="margin-bottom: 32px;">
+                <span class="header">
+                    Before Game Starts
+                </span>
+                <span>
+                    If you are the game host and enough players are in the game you can start the game by clicking the
+                    start game button at the bottom of the screen, you can invite more
+                    players by copying the game link at the bottom of the screen.
+                </span>
+                <div class="pixel-background" pbgeneratedby="html" pbtype="card" pbstyle="white">
+                </div>
+            </div>
+            <div class="page-info-block" style="margin-bottom: 32px;">
+                <span class="header">
+                    In Night Time
+                </span>
+                <span>
+                    Mafia:
+                    <br>
+                    If you are mafia you must decide who to kill by selecting the chosen player and clicking the confirm
+                    button at the bottom of the screen. Other mafias choices will show up as a counter on the players.
+                    <br>
+                    <br>
+                    Doctor:
+                    <br>
+                    If you are the doctor you must select one person to immunise and confirm this by clicking the
+                    confirm button at the bottom of the screen.
+                    <br>
+                    <br>
+                    Detective:
+                    <br>
+                    If you are the detective you must select one person to reveal the type of, you can confirm this
+                    selection by clicking the confirm button at the bottom of the screen.
+                </span>
+                <div class="pixel-background" pbgeneratedby="html" pbtype="card" pbstyle="white">
+                </div>
+            </div>
+            <div class="page-info-block" style="margin-bottom: 32px;">
+                <span class="header">
+                    In Day Time
+                </span>
+                <span>
+                    If you are still alive you have to select a player to vote out, once you have made your choice you
+                    must select the player and click the confirm button at the bottom of the screen.
+                </span>
+                <div class="pixel-background" pbgeneratedby="html" pbtype="card" pbstyle="white">
+                </div>
+            </div>
+            <div class="page-info-block">
+                <span class="header">
+                    After Game
+                </span>
+                <span>
+                    You will have the option to return to the main menu or if you are the host you will have the option
+                    to make a new game.
+                </span>
+                <div class="pixel-background" pbgeneratedby="html" pbtype="card" pbstyle="white">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="page-join-game" class="page mafia-background">
+        <div class="page-center">
+            <a class="hero-input-tag">Name (Max Length 10)</a>
+            <div class="hero-input-container">
+                <input id="page-join-game-input" class="hero-input" type="text">
+                <div class="pixel-background" pbgeneratedby="html" pbid="page-join-game-input" pbtype="button"
+                    pbstyle="white" pbfocusstyle="whiteFocus" pbfocusid="page-join-game-input">
+                </div>
+            </div>
+            <button id="page-join-game-button" class="hero-button" style="margin-top: 32px;">
+                <span>Join Game</span>
+                <div class="pixel-background" pbgeneratedby="html" pbid="page-create-game-button" pbtype="button"
+                    pbstyle="green" pbhoverstyle="greenHover">
                 </div>
             </button>
         </div>
@@ -113,33 +246,34 @@
             </div>
 
             <div id="game-container" class="game-container">
-                <button id="button-open-chat" class="game-chat-button">
+                <button id="button-open-chat" class="game-chat-button" style="display: none;">
                     <img src="../img/assets/game/ui/icon-message.png">
-                    <div class="pixel-background" pbid="button-open-chat" pbtype="button" pbstyle="black"
-                        pbhoverstyle="blackHover">
+                    <div class="pixel-background" pbgeneratedby="html" pbid="button-open-chat" pbtype="button"
+                        pbstyle="black" pbhoverstyle="blackHover">
                     </div>
                 </button>
                 <div id="error-messages-container" class="error-message-container">
                 </div>
                 <div id="game-players-container">
 
-                    <div class="player-card" client-id="x1" id="player-card-x1"
+                    <!-- <div class="player-card" client-id="x1" id="player-card-x1"
                         style="position: absolute; left: 650px; top: 250px;">
                         <img src="http://127.0.0.1:5501/dist/images/25e8d28272306bf1.png"
                             style="width: 61.2195px; height: 61.2195px;">
                         <span>
                             Test TT
                         </span>
-                        <div class="pixel-background" pbid="test" pbtype="card" pbstyle="white"
+                        <div class="pixel-background" pbgeneratedby="html" pbid="test" pbtype="card" pbstyle="white"
                             pbhoverstyle="whiteHover">
                         </div>
-                    </div>
+                    </div> -->
 
                 </div>
                 <div class="game-night-overlay">
                 </div>
                 <div id="game-chat-container" class="game-chat-container">
-                    <div class="pixel-background" pbid="game-chat-container" pbtype="card" pbstyle="whiteHover">
+                    <div class="pixel-background" pbgeneratedby="html" pbid="game-chat-container" pbtype="card"
+                        pbstyle="whiteHover">
                     </div>
                 </div>
             </div>
@@ -148,28 +282,29 @@
                 <div class="game-footer-left-container">
                     <div class="game-countdown-container">
                         <div class="game-countdown-clock-container">
-                            <span id="game-countdown-clock">00:00</span>
-                            <div class="pixel-background" pbid="game-countdown-clock" pbtype="button"
-                                pbstyle="whiteHover">
+                            <span id="game-countdown-clock"></span>
+                            <div class="pixel-background" pbgeneratedby="html" pbid="game-countdown-clock"
+                                pbtype="button" pbstyle="whiteHover">
                             </div>
                         </div>
                         <div class="game-countdown-info-container">
                             <span id="game-countdown-info"></span>
-                            <div class="pixel-background" pbid="game-countdown-info" pbtype="button" pbstyle="black">
+                            <div class="pixel-background" pbgeneratedby="html" pbid="game-countdown-info"
+                                pbtype="button" pbstyle="black">
                             </div>
                         </div>
                     </div>
                     <div class="game-footer-left-button-container">
                         <button id="button-confirm" style="display: none;" class="game-footer-left-button">
                             <span>Confirm</span>
-                            <div class="pixel-background" pbid="button-confirm" pbtype="button" pbstyle="green"
-                                pbhoverstyle="greenHover">
+                            <div class="pixel-background" pbgeneratedby="html" pbid="button-confirm" pbtype="button"
+                                pbstyle="green" pbhoverstyle="greenHover">
                             </div>
                         </button>
                         <button id="button-start-game" style="display: block;" class="game-footer-left-button">
                             <span>Start Game</span>
-                            <div class="pixel-background" pbid="button-start-game" pbtype="button" pbstyle="green"
-                                pbhoverstyle="greenHover">
+                            <div class="pixel-background" pbgeneratedby="html" pbid="button-start-game" pbtype="button"
+                                pbstyle="green" pbhoverstyle="greenHover">
                             </div>
                         </button>
                     </div>
@@ -177,13 +312,14 @@
                 <div class="game-footer-right-container">
                     <div class="game-footer-right-copy-input-container">
                         <input id="button-copy-input" type="text" readonly>
-                        <div class="pixel-background" pbid="button-copy-input" pbtype="button" pbstyle="whiteHover">
+                        <div class="pixel-background" pbgeneratedby="html" pbid="button-copy-input" pbtype="button"
+                            pbstyle="whiteHover">
                         </div>
                     </div>
                     <button id="button-copy" class="game-footer-right-copy-button">
                         <img src="../img/assets/game/ui/icon-copy.png">
-                        <div class="pixel-background" pbid="button-copy" pbtype="button" pbstyle="blue"
-                            pbhoverstyle="blueHover">
+                        <div class="pixel-background" pbgeneratedby="html" pbid="button-copy" pbtype="button"
+                            pbstyle="blue" pbhoverstyle="blueHover">
                         </div>
                     </button>
                 </div>

@@ -1,26 +1,47 @@
 .hero-disclaimer-container {
-    margin-top: 16px;
     position: relative;
     width: 100%;
     height: fit-content;
     display: flex;
+    margin-top: 16px;
+    justify-content: center;
+
+    a {
+        font-size: 12px;
+        text-align: center;
+    }
 }
 
-.hero-disclaimer-container span {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 12px;
-    text-align: center;
-    width: 100%;
+@media screen and (max-width: 425px) {
+    .hero-disclaimer-container {
+        margin-bottom: 48px;
+    }
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+    .hero-disclaimer-container {
+        margin-bottom: 48px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .hero-disclaimer-container {
+        margin-bottom: 96px;
+    }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
-    .hero-logo {
-        margin-top: 96px;
-        width: 50%;
+    .hero-disclaimer-container {
+        margin-bottom: 96px;
+
+        a {
+            width: 60%;
+        }
     }
-    .hero-disclaimer-container span {
-        width: 50%;
+}
+
+@media screen and (min-width: 1440px) {
+    .hero-disclaimer-container {
+        margin-bottom: 72px;
     }
 }

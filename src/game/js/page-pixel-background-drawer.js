@@ -26,6 +26,33 @@ function drawItemPixelBackground(items) {
                 pixelBackgroundDrawer.updatePixelBackground(item.getAttribute('pbtype'), item.getAttribute('pbstyle'), document.getElementById(`pixel-background-canvas-${item.getAttribute('pbid')}`));
             });
         };
+
+        if (item.hasAttribute('pbfocusstyle') && item.hasAttribute('pbfocusid')) {
+
+            if(item.getAttribute('pbfocusid') == 'self') {
+
+                item.addEventListener('focusin',() => {
+
+                    pixelBackgroundDrawer.updatePixelBackground(item.getAttribute('pbtype'), item.getAttribute('pbfocusstyle'), document.getElementById(`pixel-background-canvas-${item.getAttribute('pbid')}`));
+                });
+    
+                item.addEventListener('focusout',() => {
+    
+                    pixelBackgroundDrawer.updatePixelBackground(item.getAttribute('pbtype'), item.getAttribute('pbstyle'), document.getElementById(`pixel-background-canvas-${item.getAttribute('pbid')}`));
+                });
+            } else {
+
+                document.getElementById(item.getAttribute('pbfocusid')).addEventListener('focusin',() => {
+
+                    pixelBackgroundDrawer.updatePixelBackground(item.getAttribute('pbtype'), item.getAttribute('pbfocusstyle'), document.getElementById(`pixel-background-canvas-${item.getAttribute('pbid')}`));
+                });
+    
+                document.getElementById(item.getAttribute('pbfocusid')).addEventListener('focusout',() => {
+    
+                    pixelBackgroundDrawer.updatePixelBackground(item.getAttribute('pbtype'), item.getAttribute('pbstyle'), document.getElementById(`pixel-background-canvas-${item.getAttribute('pbid')}`));
+                });
+            };
+        };
     };
 };
 
@@ -35,6 +62,7 @@ function drawPagePixelBackground(pageId) {
 
     let items = page.getElementsByClassName('pixel-background');
     data.pixelBackground.itemsRendering = items;
+
 
     drawItemPixelBackground(items);
 };

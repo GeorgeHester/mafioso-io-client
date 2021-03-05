@@ -1,5 +1,6 @@
 .page-center {
     position: absolute;
+    height: fit-content;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -35,4 +36,16 @@
     .page-center {
         width: 40%;
     }
+}
+
+.page-center-top {
+    @extend .page-center;
+
+    margin-top: 96px;
+    margin-bottom: 96px;
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: fit-content;
 }

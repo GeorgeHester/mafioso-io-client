@@ -8,7 +8,7 @@ import * as data from './data';
 */
 function drawPixelBackground(type, style, parent, id) {
 
-    const t0 = performance.now();
+    //const t0 = performance.now();
 
     let canvas = document.createElement('canvas');
 
@@ -35,8 +35,8 @@ function drawPixelBackground(type, style, parent, id) {
             break;
     };
 
-    const t1 = performance.now();
-    console.log(`${id}: Pixel Background Render: ${t1 - t0} milliseconds`);
+    //const t1 = performance.now();
+    //console.log(`${id}: Pixel Background Render: ${t1 - t0} milliseconds`);
 };
 
 /*

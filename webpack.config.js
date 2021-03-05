@@ -2,20 +2,21 @@ const path = require('path');
 const fileGetter = require('./webpack/functions/get-files');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const mafiosoImageFiles = fileGetter.getFiles('./src/game/img');
 
 const mafiosoFiles = [
     './src/game/css/import.scss',
-    './src/game/js/import.js',
+    './src/game/js/import.js'/*,
     './src/game/css/components/font/pixel-font.eot',
     './src/game/css/components/font/pixel-font.svg',
     './src/game/css/components/font/pixel-font.ttf',
     './src/game/css/components/font/pixel-font.woff',
-    './src/game/css/components/font/pixel-font.woff2'
+    './src/game/css/components/font/pixel-font.woff2'*/
 ];
 
-mafiosoFiles.concat(mafiosoImageFiles);
+//mafiosoFiles.concat(mafiosoImageFiles);
 
 module.exports = {
     entry: {
@@ -28,6 +29,36 @@ module.exports = {
     },
     module: {
         rules: [
+            {
+                test: /\.s?[ac]ss$/i,
+                use: [
+                    //'style-loader',
+                    /*{
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                            publicPath: 'css'
+                        }
+                    },*/
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'sass-loader'
+                    /*{
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true
+                        }
+                    },
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                            sassOptions: {
+                                outputStyle: "compressed"
+                            }
+                        }
+                    }*/
+                ]
+            },
             {
                 test: /\.(woff|woff2|eot|ttf|otf|svg)$/i,
                 //type: 'asset/resource'
@@ -60,27 +91,6 @@ module.exports = {
                 }
             },
             {
-                test: /\.s?[ac]ss$/i,
-                use: [
-                    'style-loader',
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true
-                        }
-                    },
-                    {
-                        loader: 'sass-loader',
-                        options: {
-                            sourceMap: true,
-                            sassOptions: {
-                                outputStyle: "compressed"
-                            }
-                        }
-                    }
-                ]
-            },
-            {
                 test: /\.tsx?$/i,
                 use: {
                     loader: 'ts-loader'
@@ -93,7 +103,11 @@ module.exports = {
             template: './src/game/view/index.html',
             filename: './index.html',
             minify: false,
-            favicon: './src/game/img/favicon/favicon.ico'
+            favicon: './src/game/img/favicon/favicon.ico',
+            inject: 'body'
+        }),
+        new MiniCssExtractPlugin({
+            filename: '[name].build.css'
         })
     ]
 }

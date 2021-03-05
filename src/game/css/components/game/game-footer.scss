@@ -49,9 +49,8 @@
         font-family: "Pixel";
         font-size: 16px;
         color: $color-white;
+        pointer-events: none;
     }
-
-
 
     &:hover {
         cursor: pointer;
@@ -99,6 +98,7 @@
         width: 16px;
         height: 16px;
         transition: filter 0.125s;
+        pointer-events: none;
     }
 
 

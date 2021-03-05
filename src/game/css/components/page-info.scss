@@ -1,0 +1,19 @@
+.page-info-block {
+    position: relative;
+    height: fit-content;
+    padding: 16px;
+
+    .header {
+        position: relative;
+        display: block;
+        z-index: 1;
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    span {
+        position: relative;
+        z-index: 1;
+        font-size: 18px;
+    }
+}

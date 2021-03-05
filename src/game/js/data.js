@@ -1,9 +1,13 @@
 /*
     Server Defaults
 */
+let mode = 'debug';
+
 let webSocket = {
-    url: "ws://192.168.0.100",
-    webSocket: null
+    //url: "wss://api.mafioso.io",
+    url: "ws://192.168.0.63:8080",
+    webSocket: null,
+    isOpen: false
 };
 
 /*
@@ -38,7 +42,8 @@ let currentGame = {
     Game Countdown Defaults
 */
 let gameCountdown = {
-    time: 0
+    time: 0,
+    timer: null
 };
 
 let currentPlayers = [];
@@ -60,6 +65,17 @@ let cardBackgroundInnerHtml = `
 `;
 
 let cookies = {};
+
+let renderQueue = {};
+
+let pageHandler = {
+    previousPage: {
+        id: ''
+    },
+    currentPage: {
+        id: ''
+    }
+};
 
 let pixelBackground = {
     itemsRendering: [],
@@ -85,6 +101,11 @@ let pixelBackground = {
             outer: '8dc1d6',
             inner: '4098bb'
         },
+        lime: {
+            border: '000000',
+            outer: '80f2c3',
+            inner: '00e587'
+        },
         black: {
             border: '000000',
             outer: 'ffffff',
@@ -100,15 +121,50 @@ let pixelBackground = {
             outer: 'bfbfbf',
             inner: 'ffffff'
         },
+        whiteDisabled: {
+            border: '000000',
+            outer: 'acacac',
+            inner: 'e6e6e6'
+        },
         whiteHover: {
             border: '000000',
             outer: 'b5b5b5',
+            inner: 'f2f2f2'
+        },
+        whiteFocus: {
+            border: '000000',
+            outer: '56cbf9',
+            inner: 'f2f2f2'
+        },
+        whiteWarning: {
+            border: '000000',
+            outer: 'ffd700',
+            inner: 'f2f2f2'
+        },
+        whiteError: {
+            border: '000000',
+            outer: 'e61c50',
             inner: 'f2f2f2'
         },
         grey: {
             border: '000000',
             outer: 'a3a3a3',
             inner: 'd9d9d9'
+        },
+        redLight: {
+            border: '000000',
+            outer: 'e61c50',
+            inner: 'f9c6d3'
+        },
+        red: {
+            border: '000000',
+            outer: 'f38ea8',
+            inner: 'e61c50'
+        },
+        redHover: {
+            border: '000000',
+            outer: 'ec557c',
+            inner: 'ad153c'
         }
     }
 }
@@ -116,7 +172,7 @@ let pixelBackground = {
 /*
     Module export(s)
 */
-export {
+module.exports = {
     webSocket,
     player,
     //previousGame,
@@ -127,5 +183,8 @@ export {
     game,
     cardBackgroundInnerHtml,
     cookies,
-    pixelBackground
+    pixelBackground,
+    renderQueue,
+    pageHandler,
+    mode
 };

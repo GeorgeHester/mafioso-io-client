@@ -1,68 +1,85 @@
 .full-message-container {
-    position: absolute;
     z-index: 10;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
 }
 
-.full-message-card-shadow-default {
+.full-message-shadow {
     width: 100%;
     height: 100%;
+}
+
+.full-message-shadow-default {
+    @extend .full-message-shadow;
+
     background-color: $color-black-transparent-03;
 }
 
-.full-message-card-shadow-success {
-    width: 100%;
-    height: 100%;
+.full-message-shadow-success {
+    @extend .full-message-shadow;
+
     background-color: $color-green-transparent-03;
 }
 
-.full-message-card-shadow-fail {
-    width: 100%;
-    height: 100%;
+.full-message-shadow-fail {
+    @extend .full-message-shadow;
+
     background-color: $color-red-transparent-03;
 }
 
-.full-message-card {
+.full-message {
+    z-index: 11;
     position: absolute;
-    top: 50%;
-    left: 64px;
-    width: calc(100% - 128px);
-    height: fit-content;
-    transform: translateY(-50%);
     display: flex;
+    flex-direction: row;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    justify-content: space-around;
+    justify-content: center;
 
     span {
         z-index: 1;
         margin-top: 32px;
         margin-bottom: 32px;
-        margin-left: 16px;
-        margin-right: 16px;
-        width: 60%;
-        height: fit-content;
+        margin-left: 32px;
+        margin-right: 32px;
+        width: 80%;
         overflow-wrap: break-word;
         color: $color-white;
-        font-size: 36px;
-        pointer-events: none;
-        user-select: none;
+        font-size: 32px;
     }
 }
 
-.full-message-card-default {
-    @extend .full-message-card;
-
+@media screen and (max-width: 425px) {
+    .full-message {
+        width: calc(100% - 32px);
+    }
 }
 
-.full-message-card-fail {
-    @extend .full-message-card;
-
+@media screen and (min-width: 425px) and (max-width: 768px) {
+    .full-message {
+        width: calc(100% - 128px);
+    }
 }
 
-.full-message-card-success {
-    @extend .full-message-card;
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .full-message {
+        width: calc(100% - 128px);
+    }
+}
 
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+    .full-message {
+        width: calc(100% - 128px);
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .full-message {
+        width: calc(100% - 256px);
+    }
 }

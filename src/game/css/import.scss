@@ -167,6 +167,7 @@ $card-side-x-texture-button-white: "../img/assets/game/ui/ui-card/button-white/u
 @import "./components/image-scale.scss";
 @import "./components/page.scss";
 @import "./components/page-center.scss";
+@import "./components/page-info.scss";
 
 @import "./components/mafia-background.scss";
 @import "./components/main-page/hero-container.scss";
@@ -197,5 +198,9 @@ html {
 
 body {
     margin: 0;
-    overflow: hidden;
+    //overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
