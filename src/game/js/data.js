@@ -1,11 +1,21 @@
 /*
     Server Defaults
 */
-let mode = 'debug';
+let development = {
+    serverIp: '192.168.0.17'
+};
+
+/*
+    Application mode
+    'development' for local testing
+    'production' for server hosted
+*/
+let mode = 'development';
 
 let webSocket = {
-    url: "wss://api.mafioso.io",
+    //url: "wss://api.mafioso.io",
     //url: "ws://192.168.0.63:8080",
+    url: null,
     webSocket: null,
     isOpen: false
 };
@@ -186,5 +196,6 @@ module.exports = {
     pixelBackground,
     renderQueue,
     pageHandler,
-    mode
+    mode,
+    development
 };

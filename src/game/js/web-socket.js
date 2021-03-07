@@ -8,6 +8,15 @@ import * as countdownHandler from './countdown-handler';
 import * as cookieHandler from './cookie-handler';
 
 /*
+    Set the websocket url based on application mode
+*/
+if (data.mode == 'development') {
+    data.webSocket.url = `ws://${data.development.serverIp}:8080`;
+} else {
+    data.webSocket.url = 'wss://api.mafioso.io';
+};
+
+/*
     Generate new web socket
 */
 data.webSocket.webSocket = new WebSocket(data.webSocket.url);
@@ -82,7 +91,7 @@ data.webSocket.webSocket.onmessage = (message) => {
             Update html copy element
         */
         let copyGameIdElement = document.getElementById("button-copy-input");
-        copyGameIdElement.value = `${window.location.host}/${data.player.gameId}`;
+        copyGameIdElement.value = `https://${window.location.host}/${data.player.gameId}`;
 
         /*
             Log info 

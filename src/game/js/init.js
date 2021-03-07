@@ -27,7 +27,7 @@ if (uuidValidator.validateUuid(gameIdFromElement)) {
     data.player.gameId = gameIdFromElement;
 
     let copyGameIdElement = document.getElementById("button-copy-input");
-    copyGameIdElement.value = `${window.location.host}/${gameIdFromElement}`;
+    copyGameIdElement.value = `https://${window.location.host}/${gameIdFromElement}`;
 } else {
 
     pageHandler.displayPageHome();
